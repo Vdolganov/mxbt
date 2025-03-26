@@ -1,19 +1,39 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import { Cocktails, CocktailsScreen } from '@/modules/cocktails';
+import { ECocktails } from '@/service/cocktails/enums';
+import { allCocktails } from '@/config/constants';
+import notFound from '@/components/not-found.vue';
+import { routeNames } from './route-names';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView,
+    path: '',
+    name: routeNames.cocktailsMain,
+    component: Cocktails,
+    redirect: {
+      name: 'cocktail-item',
+      params: { id: ECocktails.Margarita },
+    },
+
+    children: [
+      {
+        path: '/:id',
+        name: routeNames.cocktailItem,
+        component: CocktailsScreen,
+        props: (route) => ({ cocktailCode: route.params.id }),
+        beforeEnter: (to, from, next) => {
+          if (!to.params.id || !allCocktails.includes(to.params.id as string)) {
+            return next({ name: '404' });
+          }
+          return next();
+        },
+      },
+    ],
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+    name: '404',
+    path: '/404',
+    component: notFound,
   },
 ];
 
