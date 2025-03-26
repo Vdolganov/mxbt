@@ -6,7 +6,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, defineProps, watch, defineOptions } from 'vue';
+import { computed, watch } from 'vue';
 
 import { TCocktailData, TCocktails } from '@/service/cocktails';
 import CocktailsSlider from '@/components/cocktails-slider.vue';

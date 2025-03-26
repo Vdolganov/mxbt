@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineOptions, defineProps, defineEmits } from 'vue';
 import { TCocktails } from '@/service/cocktails';
 import NavItem from './base/nav-item.vue';
 

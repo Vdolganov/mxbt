@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, defineProps, watch, ref } from 'vue';
+import { computed, watch, ref } from 'vue';
 import { TCocktailData } from '@/service/cocktails';
 import CocktailItem from './cocktail-item.vue';
 import ArticleSwitch from './base/article-switch.vue';

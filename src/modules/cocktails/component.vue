@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, defineOptions } from 'vue';
+import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { NavigationList } from '@/components';
 import { TCocktails } from '@/service/cocktails/types';

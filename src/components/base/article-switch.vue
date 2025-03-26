@@ -12,8 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineModel } from 'vue';
-
 interface IProps {
   length: number;
 }

@@ -5,8 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineOptions, defineProps } from 'vue';
-
 interface IProps {
   itemValue: string;
   isSelected: boolean;
